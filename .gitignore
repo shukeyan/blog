@@ -1,0 +1,4 @@
+# 忽略依赖包的提交
+node_modules/
+# 忽略缓存
+cache/

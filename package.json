@@ -1,0 +1,20 @@
+{
+  "name": "doc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@gitee.com:skynumber/doc.git",
+  "author": "sky <13125129989@163.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.20"
+  },
+  "scripts": {
+    "deploy": "bash deploy.sh",
+    "serve": "npm run docs:dev",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "docs:preview": "vitepress preview docs"
+  }
+}
