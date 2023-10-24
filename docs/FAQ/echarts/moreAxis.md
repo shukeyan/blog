@@ -1,10 +1,13 @@
+
 # 多个坐标轴 0 坐标不对齐
+
+## 问题描述
 
 开发过程中要设置两个坐标轴的两个图例，一个是表示库存单位一个是问题的，开发好后发现出现例如：
 
 ![echarts-more-axis-error](/echarts/more-yaxis.png)
 
-# 问题解决
+## 问题解决
 
 设置坐标轴的`min`和`max`属性
 
@@ -120,6 +123,9 @@
 结果：
 
 ![more-yaxis-answer](/echarts/more-yaxis-answer.png)
+
+
+## 扩展
 
 :::info 扩展
 设置`min`和`max`还可以调整图形的差异对比图形波动幅度。
