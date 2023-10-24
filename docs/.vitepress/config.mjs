@@ -43,6 +43,7 @@ export default defineConfig({
         text: "FAQ",
         items: [
           { text: "echarts多个坐标轴0坐标不对齐", link: "/FAQ/echarts/moreAxis" },
+          { text: "web集成扫描枪", link: "/FAQ/vue/scanExtens" },
           { text: "Runtime API Examples", link: "/api-examples" },
         ],
       },
