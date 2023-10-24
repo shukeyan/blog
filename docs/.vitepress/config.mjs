@@ -5,7 +5,7 @@ export default defineConfig({
   title: "个人博客",
 
   description: "vue2、vue3、vite、pinia、vue-router、webpack、rollup、three.js、echarts等学习及问题解决",
-  base: "/blogs/",
+  base: "/blog/",
   themeConfig: {
     logo: {src: '-860392153_-771138501_80_80.png', alt: "logo", width: 24, height: 24},
 
@@ -44,7 +44,7 @@ export default defineConfig({
         items: [
           { text: "echarts多个坐标轴0坐标不对齐", link: "/FAQ/echarts/moreAxis" },
           { text: "web集成扫描枪", link: "/FAQ/vue/scanExtens" },
-          { text: "Runtime API Examples", link: "/api-examples" },
+          // { text: "Runtime API Examples", link: "/api-examples" },
         ],
       },
     ],
