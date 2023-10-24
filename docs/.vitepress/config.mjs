@@ -35,10 +35,24 @@ export default defineConfig({
 
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "FAQ", link: "/FAQ" },
+      { text: "Vue", link: "/Vue/" },
+      { text: "React", link: "/React/" },
+      { text: "FAQ", link: "/FAQ/echarts/moreAxis" },
     ],
 
     sidebar: [
+      {
+        text: "Vue",
+        items: [
+          { text: "入门", link: "/Vue/" },
+        ],
+      },
+      {
+        text: "React",
+        items: [
+          { text: "入门", link: "/React/" },
+        ],
+      },
       {
         text: "FAQ",
         items: [

@@ -9,9 +9,9 @@ hero:
   actions:
     - theme: brand
       text: 进入
-      link: /markdown-examples
+      link: /React/
     - theme: alt
-      text: API Examples
+      text: vitePress API
       link: /api-examples
   image: 
     src: /image.png
