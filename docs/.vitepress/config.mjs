@@ -7,7 +7,7 @@ export default defineConfig({
   description: "vue2、vue3、vite、pinia、vue-router、webpack、rollup、three.js、echarts等学习及问题解决",
   base: "/blog/",
   themeConfig: {
-    logo: {src: '-860392153_-771138501_80_80.png', alt: "logo", width: 24, height: 24},
+    logo: { src: "/-860392153_-771138501_80_80.png", alt: "logo", width: 24, height: 24 },
 
     search: {
       provider: "local",
@@ -34,35 +34,56 @@ export default defineConfig({
     },
 
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: "Vue", link: "/Vue/" },
-      { text: "React", link: "/React/" },
-      { text: "FAQ", link: "/FAQ/echarts/moreAxis" },
-    ],
+    nav: nav(),
 
-    sidebar: [
-      {
-        text: "Vue",
-        items: [
-          { text: "入门", link: "/Vue/" },
-        ],
-      },
-      {
-        text: "React",
-        items: [
-          { text: "入门", link: "/React/" },
-        ],
-      },
-      {
-        text: "FAQ",
-        items: [
-          { text: "echarts多个坐标轴0坐标不对齐", link: "/FAQ/echarts/moreAxis" },
-          { text: "web集成扫描枪", link: "/FAQ/vue/scanExtens" },
-          // { text: "Runtime API Examples", link: "/api-examples" },
-        ],
-      },
-    ],
+    sidebar: {
+      "/Vue/": { base: "/Vue/", items: vueSide() },
+      "/React/": { base: "/React/", items: reactSide() },
+      "/FAQ/": { base: "/FAQ/", items: faqSide() },
+    },
 
     socialLinks: [{ icon: "github", link: "https://github.com/vuejs/vitepress" }],
   },
 });
+
+// 导航
+function nav() {
+  return [
+    { text: "Vue", link: "/Vue/" },
+    { text: "React", link: "/React/" },
+    { text: "FAQ", link: "/FAQ/echarts/moreAxis" },
+  ];
+}
+
+// FAQ侧边栏
+function faqSide() {
+  return [
+    {
+      text: "FAQ",
+      items: [
+        { text: "echarts多个坐标轴0坐标不对齐", link: "/echarts/moreAxis" },
+        { text: "web集成扫描枪", link: "/vue/scanExtens" },
+      ],
+    },
+  ];
+}
+
+// vue侧边栏
+function vueSide() {
+  return [
+    {
+      text: "Vue",
+      items: [],
+    },
+  ];
+}
+
+// react侧边栏
+function reactSide() {
+  return [
+    {
+      text: "React",
+      items: [],
+    },
+  ];
+}
