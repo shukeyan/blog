@@ -64,6 +64,7 @@ function faqSide() {
         { text: "echarts多个坐标轴0坐标不对齐", link: "/echarts/moreAxis" },
         { text: "web集成扫描枪", link: "/vue/scanExtens" },
         { text: "elementui组件elTable表头合并", link: "/vue/elTableColspan" },
+        { text: "elementui组件elTable表头合并后fixed失效", link: "/vue/elTableColspanFixed" },
       ],
     },
   ];
