@@ -37,6 +37,7 @@ export default defineConfig({
     nav: nav(),
 
     sidebar: {
+      "/base/": { base: "/base/", items: baseSide() },
       "/Vue/": { base: "/Vue/", items: vueSide() },
       "/React/": { base: "/React/", items: reactSide() },
       "/FAQ/": { base: "/FAQ/", items: faqSide() },
@@ -49,9 +50,22 @@ export default defineConfig({
 // 导航
 function nav() {
   return [
+    { text: "基础", link: "/base/urlToHtml" },
     { text: "Vue", link: "/Vue/" },
     { text: "React", link: "/React/" },
     { text: "FAQ", link: "/FAQ/echarts/moreAxis" },
+  ];
+}
+
+// 基础侧边栏
+function baseSide() {
+  return [
+    {
+      text: '基础',
+      items: [
+        { text: "url到显示页面的步骤", link: "/urlToHtml" },
+      ]
+    }
   ];
 }
 

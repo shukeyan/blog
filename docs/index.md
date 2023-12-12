@@ -11,8 +11,8 @@ hero:
       text: 进入
       link: /React/
     - theme: alt
-      text: vitePress API
-      link: /api-examples
+      text: 基础
+      link: /base/urlToHtml
   image: 
     src: /image.png
     alt: sky
