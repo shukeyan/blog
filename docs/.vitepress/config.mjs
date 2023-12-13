@@ -5,6 +5,7 @@ export default defineConfig({
   title: "个人博客",
 
   description: "vue2、vue3、vite、pinia、vue-router、webpack、rollup、three.js、echarts等学习及问题解决",
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   base: "/blog/",
   themeConfig: {
     logo: { src: "/-860392153_-771138501_80_80.png", alt: "logo", width: 24, height: 24 },
