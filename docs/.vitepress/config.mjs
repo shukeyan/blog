@@ -64,6 +64,7 @@ function baseSide() {
       text: '基础',
       items: [
         { text: "url到显示页面的步骤", link: "/urlToHtml" },
+        {text: 'HTTP状态码', link: '/httpStatus'}
       ]
     }
   ];
