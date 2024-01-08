@@ -1,10 +1,12 @@
 ## packages.json 配置
 
 ## 前言
+
 `package.json` 是前端项目中最重要的配置文件，它描述了项目的依赖关系，并提供项目配置的元数据。当我们初始化一个前端工程项目的时候，`npm init` 会自动在项目的根目录下生产一个`package.json`文件，了解`package.json`的配置能有效的提高我们的开发效率及规范我们的项目等；
 
 ## 配置文件格式
-下边是vue3源码中的package.json文件的部分配置：
+
+下边是 vue3 源码中的 package.json 文件的部分配置：
 
 ```json
 {
@@ -25,13 +27,13 @@
     "release": "node scripts/release.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "dev-compiler": "npm-run-all --parallel \"dev template-explorer\" serve",
-    "dev-sfc": "npm-run-all --parallel \"dev compiler-sfc -f esm-browser\" \"dev runtime-core -f esm-bundler\" 
+    "dev-sfc": "npm-run-all --parallel \"dev compiler-sfc -f esm-browser\" \"dev runtime-core -f esm-bundler\"
     \"dev runtime-dom -f esm-bundler\" serve-sfc-playground",
     "serve-sfc-playground": "vite packages/sfc-playground",
     "serve": "serve",
     "open": "open http://localhost:5000/packages/template-explorer/local.html",
     "preinstall": "node ./scripts/checkYarn.js",
-    "prebuild-sfc-playground": "node scripts/build.js compiler shared -af cjs && node scripts/build.js runtime reactivity shared -af esm-bundler && 
+    "prebuild-sfc-playground": "node scripts/build.js compiler shared -af cjs && node scripts/build.js runtime reactivity shared -af esm-bundler &&
     node scripts/build.js vue -f esm-bundler-runtime && node scripts/build.js vue -f esm-browser-runtime && node scripts/build.js compiler-sfc -f esm-browser",
     "build-sfc-playground": "cd packages/sfc-playground && vite build"
   },
@@ -79,6 +81,7 @@
   }
 }
 ```
+
 ## 详细配置
 
 ![package.json配置属性](/packages/package-property.png)
@@ -86,14 +89,115 @@
 ### 一、必须属性
 
 1. `name`项目的名称，发布为`npm`包时需要使用，如果没有设置，`npm`包将无法发布；
-::: warning 注意
-`name`属性是必须的，它的值是项目的名称，它应该是唯一的，并且应该是小写的，并且不能包含空格。
-    
-:::
+    ::: warning 注意
+
+    - `name`属性是必须的，它的值是项目的名称，它应该是唯一的，并且应该是小写的，不能以`.`、`_`开头，长度小于等于 214 个字符。
+    - 名称可以作为参数传入`require('')`中，用来导入模块，所以应该尽量简短、语义化。
+    - 不能是唯一的，不能与已发布的包重名，可以使用`npm view`命令查询模块是否重复，如果不重复 code 为`code E404`
+
+    :::
+
 2. `version`项目的版本号
 
+    ::: warning 注意
+    - `version`属性是必须的，它的值是项目的版本号，它应该是一个合法的版本号，`主版本号.次版本号.修订号`，例如`1.0.0`，`1.0.1`，`1.1.0`，`1.0.0-alpha`，`1.0.0-beta`，`1.0.0-beta.1`，`1.0.0-beta.2`，`1.0.0-beta.11`，`1.0.0-rc.1`，通常情况下，修改主版本号是做了大的功能改变，修改次版本号是新增功能，修改修订号就是修复一些 bug
+    - 如果某个版本的改动较大，并且不稳定，可能无法满足预期的兼容性，就需要发布先行版本，先行版本通常会加在版本的后面，通过“-”号连接以点分隔的标识符和版本编译信息：**内部版本（alpha)**、**公测版本（beta）**、**候选版本（rc，即 release candiate）**。例如`1.0.0-alpha`、`1.0.0-beta`、`1.0.0-beta.2`、`1.0.0-beta.11`、`1.0.0-rc.1`。
+    
+    :::
+
+
+### 二、描述属性
+
+package.json种对项目包描述信息相关的配置字段，下面就分别来看看这些字段的含义。
+
+1. `description` 描述这个项目包的信息，它是一个字符串，可以让其他开发者在 `npm`` 的搜索中发现我们的项目包。
+2. `keywords` 关键字，是一个字符串数组，可以让其他开发者在 `npm` 的搜索中发现我们的项目包。
+3. `author`作者，项目包的开发者。
+   ::: warning 注意
+    它有两种表示方式：
+    - 字符串格式
+
+    ```json
+        "author": "Evan You <evanyou.me> (https://evanyou.me)"
+    ```
+
+    - 对象格式
+
+    ```json
+        "author": {
+            "name": "Evan You",
+            "email": "evanyou.me",
+            "url": "https://evanyou.me"
+        }
+    ```
+    :::
+
+3. `contributors`项目的贡献者，是一个数组           
+
+    ::: warning 注意
+    它有两种表示方式：
+    - 字符串格式
+
+    ```json
+        "contributors": [
+            "Evan You <evanyou.me> (https://evanyou.me)",
+            "John Doe <johndoe.me> (https://johndoe.me)"
+        ]
+    ```
+
+    - 对象格式
+
+    ```json
+        "contributors": [
+            {
+                "name": "Evan You",
+                "email": "evanyou.me",
+                "url": "https://evanyou.me"
+            },
+            {
+                "name": "John Doe",
+                "email": "johndoe.me",
+                "url": "https://johndoe.me"
+            }
+        ]
+    ```
+    :::
+
+5. `homepage`项目的主页地址，字符串格式
+6. `repository`项目的仓库地址
+    ::: warning 注意
+    两种写法：
+    - 字符串格式
+
+    ```json
+        "repository": "https://github.com/EvanYou/webpack-template.git"
+    ```
+
+    - 对象格式
+
+    ```json
+        "repository": {
+            "type": "git",
+            "url": "git+https://github.com/EvanYou/webpack-template.git",
+            "directory": "packages/compiler-core" // 仓库目录
+        }
+    ```
+    :::
+
+7. `bugs`表示项目提交问题的地址，该字段是一个对象，可以添加一个提交问题的地址和反馈的邮箱：
+
+    ```json
+        "bugs": {
+            "url": "https://github.com/EvanYou/webpack-template/issues",
+            "email": "webpack-template@163.com"
+        }
+    ```
+最常见的bugs就是Github中的issues页面。
+
+### 三、依赖项配置
 
 
 
 ## 参考
 [关于前端大管家 package.json，你知道多少？](https://juejin.cn/post/7023539063424548872)
+````
