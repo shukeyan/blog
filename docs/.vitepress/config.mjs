@@ -5,7 +5,7 @@ export default defineConfig({
   title: "个人博客",
 
   description: "vue2、vue3、vite、pinia、vue-router、webpack、rollup、three.js、echarts等学习及问题解决",
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   base: "/blog/",
   themeConfig: {
     logo: { src: "/-860392153_-771138501_80_80.png", alt: "logo", width: 24, height: 24 },
@@ -42,6 +42,7 @@ export default defineConfig({
       "/Vue/": { base: "/Vue/", items: vueSide() },
       "/React/": { base: "/React/", items: reactSide() },
       "/FAQ/": { base: "/FAQ/", items: faqSide() },
+      "/packages/": { base: "/packages/", items: packagesSide() },
     },
 
     socialLinks: [{ icon: "github", link: "https://github.com/vuejs/vitepress" }],
@@ -51,10 +52,12 @@ export default defineConfig({
 // 导航
 function nav() {
   return [
-    { text: "基础", link: "/base/urlToHtml" },
+    { text: "基础", items: [{ text: "网络", link: "/base/urlToHtml" }] },
     { text: "Vue", link: "/Vue/" },
     { text: "React", link: "/React/" },
     { text: "FAQ", link: "/FAQ/echarts/moreAxis" },
+    { text: "packages.json", items: [{ text: "packages.json", link: "/packages/" }] },
+    { text: "typescript", items: [{ text: "typescript", link: "/typescript/" }] },
   ];
 }
 
@@ -62,12 +65,12 @@ function nav() {
 function baseSide() {
   return [
     {
-      text: '基础',
+      text: "基础",
       items: [
         { text: "url到显示页面的步骤", link: "/urlToHtml" },
-        {text: 'HTTP状态码', link: '/httpStatus'}
-      ]
-    }
+        { text: "HTTP状态码", link: "/httpStatus" },
+      ],
+    },
   ];
 }
 
@@ -102,6 +105,26 @@ function reactSide() {
     {
       text: "React",
       items: [],
+    },
+  ];
+}
+
+// packages.json侧边栏
+function packagesSide() {
+  return [
+    {
+      text: "packages.json",
+      items: [{ text: "packages.json配置", link: "/" }],
+    },
+  ];
+}
+
+// typescript侧边栏
+function typescriptSide() {
+  return [
+    {
+      text: "TypeScript",
+      items: [{ text: "TypeScript配置", link: "/" }],
     },
   ];
 }
