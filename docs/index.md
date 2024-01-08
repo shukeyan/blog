@@ -1,6 +1,7 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+showNav: true # 是否显示导航
 
 hero:
   name: "个人博客"
