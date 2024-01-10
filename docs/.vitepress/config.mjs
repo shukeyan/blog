@@ -41,8 +41,8 @@ export default defineConfig({
       "/base/": { base: "/base/", items: baseSide() },
       "/Vue/": { base: "/Vue/", items: vueSide() },
       "/React/": { base: "/React/", items: reactSide() },
+      "/npm/": { base: "/npm/", items: packagesSide() },
       "/FAQ/": { base: "/FAQ/", items: faqSide() },
-      "/packages/": { base: "/packages/", items: packagesSide() },
     },
 
     socialLinks: [{ icon: "github", link: "https://github.com/vuejs/vitepress" }],
@@ -55,9 +55,9 @@ function nav() {
     { text: "基础", items: [{ text: "网络", link: "/base/urlToHtml" }] },
     { text: "Vue", link: "/Vue/" },
     { text: "React", link: "/React/" },
-    { text: "FAQ", link: "/FAQ/echarts/moreAxis" },
-    { text: "packages.json", items: [{ text: "packages.json", link: "/packages/" }] },
+    { text: "npm", items: [{ text: "packages.json", link: "/npm/" }] },
     { text: "typescript", items: [{ text: "typescript", link: "/typescript/" }] },
+    { text: "FAQ", link: "/FAQ/echarts/moreAxis" },
   ];
 }
 
