@@ -9,7 +9,7 @@ export default defineConfig({
   base: "/blog/",
   themeConfig: {
     logo: { src: "/-860392153_-771138501_80_80.png", alt: "logo", width: 24, height: 24 },
-
+    outline: [1, 4],
     search: {
       provider: "local",
       options: {
