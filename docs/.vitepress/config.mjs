@@ -55,7 +55,7 @@ function nav() {
     { text: "基础", items: [{ text: "网络", link: "/base/urlToHtml" }] },
     { text: "Vue", link: "/Vue/" },
     { text: "React", link: "/React/" },
-    { text: "npm", items: [{ text: "packages.json", link: "/npm/" }] },
+    { text: "npm && git", items: [{ text: "packages.json", link: "/npm/" },{ text: "git", link: "/npm/git/" }] },
     { text: "typescript", items: [{ text: "typescript", link: "/typescript/" }] },
     { text: "FAQ", link: "/FAQ/echarts/moreAxis" },
   ];
@@ -116,6 +116,12 @@ function packagesSide() {
       text: "packages.json",
       items: [{ text: "packages.json配置", link: "/" }],
     },
+    {
+      text: 'git',
+      items: [
+        { text: "git rev-parse", link: "/git/" },
+      ]
+    }
   ];
 }
 
