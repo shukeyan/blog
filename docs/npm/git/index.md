@@ -7,7 +7,8 @@
 ### 1. 查询当前的commit
 #### 1.1 查询完整的commit
 ```bash
-git rev-parse HEAD  # 获取当前commit的sha1值-->f5818eb0e37715f2a70c0237550e2e03fea9b6a4
+git rev-parse HEAD  
+# 获取当前commit的sha1值-->f5818eb0e37715f2a70c0237550e2e03fea9b6a4
 ```
 #### 1.2 查询简短的commit
 ```bash
