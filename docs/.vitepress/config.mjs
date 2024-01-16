@@ -41,7 +41,7 @@ export default defineConfig({
       "/base/": { base: "/base/", items: baseSide() },
       // "/Vue/": { base: "/Vue/", items: vueSide() },
       // "/React/": { base: "/React/", items: reactSide() },
-      "rollup": {base: '/rollup/', items: rollupSide()},
+      "rollup": { base: '/rollup/', items: rollupSide() },
       "/npm/": { base: "/npm/", items: packagesSide() },
       "/FAQ/": { base: "/FAQ/", items: faqSide() },
     },
@@ -56,8 +56,8 @@ function nav() {
     { text: "基础", items: [{ text: "网络", link: "/base/urlToHtml" }] },
     // { text: "Vue", link: "/Vue/" },
     // { text: "React", link: "/React/" },
-    {text: 'rollup', items: [{text: '路径', link: '/rollup/'}]},
-    { text: "npm && git", items: [{ text: "packages.json", link: "/npm/" },{ text: "git", link: "/npm/git/" }] },
+    { text: 'rollup', items: [{ text: '路径', link: '/rollup/' }, { text: '命令行', link: '/rollup/command' }] },
+    { text: "npm && git", items: [{ text: "packages.json", link: "/npm/" }, { text: "git", link: "/npm/git/" }] },
     { text: "typescript", items: [{ text: "typescript", link: "/typescript/" }] },
     { text: "FAQ", link: "/FAQ/echarts/moreAxis" },
   ];
@@ -85,6 +85,10 @@ function rollupSide() {
         { text: "获取当前文件绝对路径及packge.json", link: "/" },
       ],
     },
+    {
+      text: '命令行',
+      link: "/command",
+    }
   ];
 }
 
