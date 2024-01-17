@@ -101,3 +101,10 @@ type Pick<T, K extends keyof T> = {
 - `keyof T`获取给定类型T的所有属性
 - `K extends keyof T` `T` 是一个类型参数，表示待处理的类型，`K` 是一个类型参数，表示要选取的属性的键集合。 表示 `K` 必须是类型 `T` 的键集合中的一部分。
 - `[P in K]` 遍历`K`类型组成的集合
+
+
+
+
+参考：[盘点 TypeScript 内置类型](https://zhuanlan.zhihu.com/p/647257428)
+
+

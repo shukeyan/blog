@@ -105,6 +105,12 @@ function faqSide() {
         { text: "elementui组件elTable表头合并后fixed失效", link: "/vue/elTableColspanFixed" },
       ],
     },
+    {
+      text: 'github',
+      items: [
+        { text: "github最新host", link: "/githubHost"}
+      ]
+    }
   ];
 }
 
