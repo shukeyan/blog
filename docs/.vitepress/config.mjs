@@ -41,6 +41,7 @@ export default defineConfig({
       "/base/": { base: "/base/", items: baseSide() },
       // "/Vue/": { base: "/Vue/", items: vueSide() },
       // "/React/": { base: "/React/", items: reactSide() },
+      "/typescript/": { base: "/typescript/", items: typescriptSide() },
       "rollup": { base: '/rollup/', items: rollupSide() },
       "/npm/": { base: "/npm/", items: packagesSide() },
       "/FAQ/": { base: "/FAQ/", items: faqSide() },
@@ -58,7 +59,7 @@ function nav() {
     // { text: "React", link: "/React/" },
     { text: 'rollup', items: [{ text: '路径', link: '/rollup/' }, { text: '命令行', link: '/rollup/command' }] },
     { text: "npm && git", items: [{ text: "packages.json", link: "/npm/" }, { text: "git", link: "/npm/git/" }] },
-    { text: "typescript", items: [{ text: "typescript", link: "/typescript/" }] },
+    { text: "typescript", items: [{ text: "内置类型", link: "/typescript/" }] },
     { text: "FAQ", link: "/FAQ/echarts/moreAxis" },
   ];
 }
@@ -148,7 +149,7 @@ function typescriptSide() {
   return [
     {
       text: "TypeScript",
-      items: [{ text: "TypeScript配置", link: "/" }],
+      items: [{ text: "TypeScript内置类型", link: "/" }],
     },
   ];
 }
