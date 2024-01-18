@@ -47,7 +47,7 @@ export default defineConfig({
       "/FAQ/": { base: "/FAQ/", items: faqSide() },
     },
 
-    socialLinks: [{ icon: "github", link: "https://github.com/vuejs/vitepress" }],
+    socialLinks: [{ icon: "github", link: "https://githubfast.com/shukeyan/blog" }],
   },
 });
 
