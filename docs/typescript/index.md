@@ -243,6 +243,107 @@ type ConstructorParameters<T extends abstract new (...args: any) => any> = T ext
 - `type ConstructorParameters<T extends abstract new (...args: any) => any>`：通过 `type` 关键字定义了一个类型别名 `ConstructorParameters<T extends abstract new (...args: any) => any>`，其中 `T` 是类型参数，表示待处理的抽象构造函数类型。
 - `T extends abstract new (...args: infer P) => any ? P : never`：这是一个条件类型的表达式。条件类型用于根据某个条件选择不同的类型。在这里，`T extends abstract new (...args: infer P) => any` 是一个条件，如果 `T` 是一个抽象构造函数类型，那么 `P` 将被推断为构造函数的参数类型数组。而 `? P` 表示当条件成立时，返回 `P`，即参数类型数组；而 `: never` 表示当条件不成立时，返回 `never` 类型。
 
+## `ReturnType`
+`ReturnType` 从一个函数类型中提取返回值类型。
+```ts
+function fn(a: string, b: number, c: boolean): [string, number, boolean] {
+    return [a, b, c];
+}
+type FnReturn = ReturnType<typeof fn>;
+/**
+ * type FnReturn = [string, number, boolean];
+ * */
+ ```
+ 代码实现:
+ ```ts
+ type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : never;
+ ```
+ - `ReturnType<T>`条件类型，它接受一个函数类型T作为参数。通过`infer`关键字，我们将类型变量`R`绑定到函数类型的返回值上。如果T是一个函数类型，那么`ReturnType<T>`将返回`R`，即函数的返回值类型；否则，返回`never`。
+
+ ## `InstanceType`
+ `InstanceType` 从一个构造函数类型中提取构造函数的实例类型。 接受一个构造函数类型作为参数，并返回该构造函数类型的实例类型。
+
+ ```ts
+ class Person {
+    constructor(name: string, age: number) {
+        // constructor implementation
+        this.name = name;
+        this.age = age;
+    }
+    name: string;
+    age: number;
+ }
+ type PersonInstance = InstanceType<typeof Person>;
+ /**
+  * type PersonInstance = Person;
+  * */
+ ```
+ 代码实现:
+ ```ts
+ type InstanceType<T extends abstract new (...args: any) => any> = T extends abstract new (...args: any) => infer R ? R : never;
+ ```
+ - `type InstanceType<T extends abstract new (...args: any) => any>`：通过 `type` 关键字定义了一个类型别名 `InstanceType<T extends abstract new (...args: any) => any>`，其中` T `是类型参数，表示待处理的抽象构造函数类型。
+- `T extends abstract new (...args: any) => infer R ? R : any`：这是一个条件类型的表达式。条件类型用于根据某个条件选择不同的类型。在这里，`T extends abstract new (...args: any) => infer R `是一个条件，如果 `T` 是一个抽象构造函数类型，那么 `R` 将被推断为构造函数实例的类型。而 `? R` 表示当条件成立时，返回 `R`，即构造函数实例的类型；而 `: any` 表示当条件不成立时，返回 `any` 类型。
+
+这个类型别名在实际开发中常用于需要从抽象构造函数类型中获取构造函数实例类型的场景，可以用于构造函数实例类型的推断和使用。
+
+## `Uppercase`
+`Uppercase` 将给定字符串类型的字母转换为大写字母。
+```ts
+type str = 'hello' | 'world';
+type UppercaseStr = Uppercase<str>;
+/**
+ * type UppercaseStr = 'HELLO' | 'WORLD';
+ * */
+```
+代码实现:
+```ts
+type Uppercase<S extends string> = intrinsic;
+```
+- `intrinsic`：这是一个占位符，表示实际的内置类型或函数。在这里，`intrinsic` 代表了一个内部实现，用于将字符串类型中的字符转换为大写形式。
+
+## `Lowercase`
+`Lowercase` 将给定字符串类型的字母转换为小写字母。
+```ts
+type str = 'HELLO' | 'WoRlD';
+type LowercaseStr = Lowercase<str>;
+/**
+ * type LowercaseStr = 'hello' | 'world';
+ * */
+```
+代码实现:
+```ts
+type Lowercase<S extends string> = intrinsic;
+```
+- `intrinsic`：这是一个占位符，表示实际的内置类型或函数。在这里，`intrinsic` 代表了一个内部实现，用于将字符串类型中的字符转换为小写形式。
+
+## `Capitalize`
+`Capitalize` 将给定字符串类型的首字母转换为大写。
+```ts
+type str = 'hello' | 'world';
+type CapitalizeStr = Capitalize<str>;
+/**
+ * type CapitalizeStr = 'Hello' | 'World';
+ * */
+```
+代码实现:
+```ts
+type Capitalize<S extends string> = intrinsic;
+```
+
+## `Uncapitalize`
+`Uncapitalize` 将给定字符串类型的首字母转换为小写。
+```ts
+type str = 'Hello' | 'World';
+type UncapitalizeStr = Uncapitalize<str>;
+/**
+ * type UncapitalizeStr = 'hello' | 'world';
+ * */
+```
+代码实现:
+```ts
+type Uncapitalize<S extends string> = intrinsic;
+```
 
 ## 参考：
 
